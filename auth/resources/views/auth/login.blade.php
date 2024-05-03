@@ -1,5 +1,7 @@
 <!-- resources/views/auth/login.blade.php -->
+@extends('layouts.auth')
 
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +70,7 @@
             <!-- Email field -->
             <div>
                 <label for="email">Email</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter email here">
+                <input id="email" type="email" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus placeholder="Enter email here">
                 @error('email')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -76,9 +78,7 @@
             <!-- Password field -->
             <div>
                 <label for="password">Password</label>
-                <input id="password" type="password" name="password" required autocomplete="current-password" placeholder="Enter password here">
-
-                <!-- Display error message if password validation fails -->
+                <input id="password" type="password" name="password"  autocomplete="current-password" placeholder="Enter password here">
                 @error('password')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -87,14 +87,8 @@
             <button type="submit">Login</button>
         </form>
 
-        <!-- Display error messages if any -->
-        @if ($errors->any())
-            <div class="error-message">
-                @foreach ($errors->all() as $error)
-                    <span>{{ $error }}</span><br>
-                @endforeach
-            </div>
-        @endif
+
     </div>
 </body>
 </html>
+@endsection

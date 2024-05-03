@@ -4,8 +4,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     /**
@@ -26,7 +26,7 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
-    
+
     /**
      * Process the user's registration.
      *
@@ -51,8 +51,6 @@ class AuthController extends Controller
 
         // Redirect the user after successful registration
         return redirect()->route('login.show')->with('success', 'Registration successful! Please log in.');
-    
-        
     }
 
     //login request
@@ -62,14 +60,14 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-    
+
         $credentials = $request->only('email', 'password');
-    
+
         if (Auth::attempt($credentials)) {
             // Authentication passed
             return redirect()->intended('/posts');
         }
-    
+
         // Authentication failed
         return redirect()->back()->withInput($request->only('email'))->withErrors([
             'email' => 'These credentials do not match our records.',
