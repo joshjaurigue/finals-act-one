@@ -53,6 +53,8 @@ class AuthController extends Controller
         // Redirect the user after successful registration
         return redirect()->route('login.show')->with('success', 'Registration successful! Please log in.');
     }
+
+    //login request
     public function login(Request $request)
     {
         $request->validate([
