@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+
 class AuthController extends Controller
 {
     /**
@@ -72,5 +73,12 @@ class AuthController extends Controller
         return redirect()->back()->withInput($request->only('email'))->withErrors([
             'email' => 'These credentials do not match our records.',
         ]);
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        session()->flush();
+        return redirect('/login');
     }
 }

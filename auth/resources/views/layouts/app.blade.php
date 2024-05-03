@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login.show') }}">Logout</a>
+                    <a class="nav-link" href="{{ route('logout') }}">Logout</a>
                 </li>
             </ul>
         </div>
@@ -29,8 +29,8 @@
 </nav>
 
 <div class="container mt-4">
-   
-    @yield('content') 
+
+    @yield('content')
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

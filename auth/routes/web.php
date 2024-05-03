@@ -11,6 +11,7 @@ Route::redirect('/', '/login');
 
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register.show');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.show');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
