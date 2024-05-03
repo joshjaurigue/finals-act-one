@@ -62,10 +62,10 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-
+        <!-- Login form -->
         <form method="POST" action="{{ route('login.post') }}">
             @csrf
-
+            <!-- Email field -->
             <div>
                 <label for="email">Email</label>
                 <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter email here">
@@ -73,10 +73,12 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-
+            <!-- Password field -->
             <div>
                 <label for="password">Password</label>
                 <input id="password" type="password" name="password" required autocomplete="current-password" placeholder="Enter password here">
+
+                <!-- Display error message if password validation fails -->
                 @error('password')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -85,6 +87,7 @@
             <button type="submit">Login</button>
         </form>
 
+        <!-- Display error messages if any -->
         @if ($errors->any())
             <div class="error-message">
                 @foreach ($errors->all() as $error)
