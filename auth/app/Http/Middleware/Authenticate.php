@@ -11,8 +11,7 @@ class Authenticate
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {
-            // Redirect the user to the login page
-            return redirect()->route('register.show');
+            return redirect()->route('login.show');
         }
 
         return $next($request);
