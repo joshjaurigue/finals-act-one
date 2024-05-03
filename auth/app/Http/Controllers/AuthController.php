@@ -50,10 +50,27 @@ class AuthController extends Controller
         ]);
 
         // Redirect the user after successful registration
-        return redirect()->route('register')->with('success', 'Registration successful! Please log in.');
+        return redirect()->route('login.show')->with('success', 'Registration successful! Please log in.');
     
         
     }
-}
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-?>
+        $credentials = $request->only('email', 'password');
+
+
+            // Authentication passed
+            return redirect()->intended('/posts');
+        
+
+        // Authentication failed
+        // return redirect()->back()->withInput($request->only('email'))->withErrors([
+        //     'email' => 'These credentials do not match our records.',
+        // ]);
+    }
+}

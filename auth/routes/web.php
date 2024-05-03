@@ -10,8 +10,12 @@ Route::redirect('/', '/register');
 
 
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register.show');
-
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.show');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+
+
+
 Route::get('/posts/create', function() {
     return view('posts.create');
 })->name('posts.create');
