@@ -4,12 +4,14 @@
 @section('content')
 <h1>Registration</h1>
 @if (session('success'))
+    <!-- Success Alert -->
         <div class="alert alert-success" role="alert">
             {{ session('success') }}
         </div>
 @endif
 <form action="{{ route('register') }}" method="POST">
     @csrf
+    <!-- Register form -->
     <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="Enter email here">
