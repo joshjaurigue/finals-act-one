@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     /**
@@ -60,17 +60,17 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
+    
         $credentials = $request->only('email', 'password');
-
-
+    
+        if (Auth::attempt($credentials)) {
             // Authentication passed
             return redirect()->intended('/posts');
-        
-
+        }
+    
         // Authentication failed
-        // return redirect()->back()->withInput($request->only('email'))->withErrors([
-        //     'email' => 'These credentials do not match our records.',
-        // ]);
+        return redirect()->back()->withInput($request->only('email'))->withErrors([
+            'email' => 'These credentials do not match our records.',
+        ]);
     }
 }

@@ -68,7 +68,7 @@
 
             <div>
                 <label for="email">Email</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter email here">
                 @error('email')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -76,7 +76,7 @@
 
             <div>
                 <label for="password">Password</label>
-                <input id="password" type="password" name="password" required autocomplete="current-password">
+                <input id="password" type="password" name="password" required autocomplete="current-password" placeholder="Enter password here">
                 @error('password')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
