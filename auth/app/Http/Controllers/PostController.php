@@ -21,7 +21,9 @@ class PostController extends Controller
         $post->save();
         return redirect('/posts');
     }
-
+    public function create() {
+        return view('posts.create');
+    }
     public function show($id){
         // the firstOrFail() method will throw an exception if the post is not found
         $post = Post::with('user')->where('id', $id)->firstorFail();
