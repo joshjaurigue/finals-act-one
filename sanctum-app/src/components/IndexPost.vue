@@ -1,5 +1,15 @@
 <template>
   <div class="container">
+    <nav class="nav-bar">
+      <div class="nav-container">
+        <span class="nav-brand">NewsFeed</span>
+        <ul class="nav-links">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/logout">Logout</router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <router-link to="/posts/create" class="btn btn-primary">Create New Post</router-link>
     <br>
     <br>
@@ -91,5 +101,42 @@ export default {
   text-align: left;
   background-color: #4CAF50;
   color: white;
+}
+
+.nav-bar {
+  background-color: #33f6fa;
+  color: rgb(15, 0, 0);
+  padding: 10px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  margin-left: 20px;
+}
+
+.nav-links {
+  list-style: none;
+  margin-right: 20px;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: rgb(218, 36, 36);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
 }
 </style>
